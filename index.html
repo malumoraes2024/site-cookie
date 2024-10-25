@@ -6,6 +6,40 @@
     <title>Página Inicial - Loja Virtual</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css"> <!-- Link para o CSS do index -->
+    <style>
+        /* Estilo para as imagens do carrossel */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 500px; /* Limita a largura do carrossel */
+            margin: 20px auto; /* Centraliza o carrossel */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease; /* Transição suave */
+            width: 300%; /* Para acomodar 3 imagens */
+        }
+
+        .carousel-images img {
+            width: 500px; /* Cada imagem com largura de 500px */
+            height: 500px; /* Cada imagem com altura de 500px */
+            object-fit: contain; /* Ajusta a imagem sem distorção */
+            flex: 0 0 100%; /* Cada imagem ocupa 100% do espaço do carrossel */
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+    </style>
 </head>
 <body>
 
@@ -17,7 +51,7 @@
     </div>
     <h1>Bem-vindo à Nossa Loja Virtual</h1>
     <button class="button" onclick="window.location.href='cardapio.html'">Ver Cardápio</button>
-    <img src="cabeçalho.jpg" alt="Cabeçalho">
+    <img src="cabeçalho.jpg" alt="Cabeçalho da Loja Virtual">
     <nav id="navMenu">
         <a href="contato.html" onmouseover="toggleMenu(true)" onmouseout="startHideMenu()">Contato</a>
         <a href="cardapio.html" onmouseover="toggleMenu(true)" onmouseout="startHideMenu()">Cardápio</a>
@@ -30,9 +64,9 @@
         <p>Explore nossa seleção de produtos incríveis!</p>
         <div class="carousel-container">
             <div class="carousel-images" id="carouselImages">
-                <img src="produto1.jpg" alt="Produto 1">
-                <img src="produto2.jpg" alt="Produto 2">
-                <img src="produto3.jpg" alt="Produto 3">
+                <img src="C:\Users\grayf\OneDrive\Documentos\SiteCookie\produto1Nut.jpg" alt="Produto 1: Descrição do Produto 1">
+                <img src="produtos/produto2Red.jpg" alt="Produto 2: Descrição do Produto 2">
+                <img src="produtos/produto3MM.jpg" alt="Produto 3: Descrição do Produto 3">
             </div>
             <div class="buttons">
                 <button class="button" onclick="prevSlide()">❮</button>
@@ -51,17 +85,16 @@
 
 <script>
     let currentIndex = 0;
-    let hideTimeout;
     const images = document.querySelectorAll('.carousel-images img');
     const descriptions = [
-        "Descrição do Produto 1: Este é um produto incrível que você não pode perder!",
-        "Descrição do Produto 2: Este produto é ideal para quem busca qualidade e preço justo.",
-        "Descrição do Produto 3: Conheça nosso produto mais vendido, uma verdadeira sensação!"
+        "Descrição do Produto 1: irresistivel cookie de nutella",
+        "Descrição do Produto 2: cookie de redvelvet",
+        "Descrição do Produto 3: irresistivel cookie de ovomaltine"
     ];
 
     function showSlide(index) {
-        currentIndex = index < 0 ? images.length - 1 : index % images.length;
-        const offset = -currentIndex * 100;
+        currentIndex = (index + images.length) % images.length; // Garante que o índice seja circular
+        const offset = -currentIndex * 100; // Mover o carrossel para a esquerda
         document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
         document.getElementById('productDescription').innerText = descriptions[currentIndex]; // Atualiza a descrição
     }
@@ -87,6 +120,11 @@
             toggleMenu(false);
         }, 2000); // 2 segundos de permanência
     }
+
+    // Mostrar a primeira descrição ao carregar
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('productDescription').innerText = descriptions[currentIndex];
+    });
 </script>
 
 </body>
