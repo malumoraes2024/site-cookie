@@ -109,7 +109,6 @@
         <div></div>
     </div>
     <h1>Bem-vindo à Nossa Loja Virtual</h1>
-    <img src="cabeçalho.jpg" alt="Cabeçalho da Loja Virtual">
     <nav id="navMenu">
         <a href="contato.html">Contato</a>
         <a href="cardapio.html">Cardápio</a>
@@ -124,6 +123,69 @@
             <div class="carousel-images" id="carouselImages">
                 <img src="produto1Nut.jpg" alt="Produto 1">
                 <img src="produto2Red.jpg" alt="Produto 2">
+                <img src="produto4MM.jpg" alt="Produto 3">
+            </div>
+            <div class="buttons">
+                <button class="button" onclick="prevSlide()">❮</button>
+                <button class="button" onclick="nextSlide()">❯</button>
+            </div>
+        </div>
+        <div class="product-description" id="productDescription">
+            Descrição do Produto 1
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Loja Virtual. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const descriptions = [
+        "Descrição do Produto 1: Este é um produto incrível que você não pode perder!",
+        "Descrição do Produto 2: Este produto é ideal para quem busca qualidade e preço justo.",
+        "Descrição do Produto 3: Conheça nosso produto mais vendido, uma verdadeira sensação!"
+    ];
+
+    function showSlide(index) {
+        currentIndex = (index + images.length) % images.length; // Garante que o índice seja circular
+        const offset = -currentIndex * (100 / images.length); // Mover o carrossel para a esquerda
+        document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
+        document.getElementById('productDescription').innerText = descriptions[currentIndex]; // Atualiza a descrição
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    function toggleMenu(show) {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.style.display = show ? 'block' : 'none';
+        if (show) {
+            clearTimeout(hideTimeout); // Limpa o timeout ao mostrar o menu
+        }
+    }
+
+    function startHideMenu() {
+        hideTimeout = setTimeout(() => {
+            toggleMenu(false);
+        }, 2000); // 2 segundos de permanência
+    }
+
+    // Mostrar a primeira descrição ao carregar
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlide(currentIndex);
+    });
+</script>
+
+</body>
+</html>img src="produto2Red.jpg" alt="Produto 2">
                 <img src="produto4MM.jpg" alt="Produto 3">
             </div>
             <div class="buttons">
