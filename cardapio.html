@@ -6,7 +6,6 @@
     <title>Cardápio - Loja Virtual</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-<style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -176,135 +175,6 @@
             border-color: transparent transparent #d3b888 transparent; 
             transform: translateX(-50%) rotate(0deg);
         }
-    </style>transform: scale(1.1);
-        }
-
-        .price {
-            font-size: 1.2em;
-            color: #333;
-            margin: 10px 0;
-        }
-
-        .add-to-cart {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background-color: #45a049;
-        }
-
-        .back-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-bottom: 20px;
-            display: block;
-            text-align: center;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .back-button:hover {
-            background-color: #0056b3;
-        }
-
-        .cart {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 250px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .remove-from-cart {
-            background-color: #FFD700;
-            color: black;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .remove-from-cart:hover {
-            background-color: #FFC300;
-        }
-
-        /* Animação */
-        .animated {
-            position: absolute;
-            z-index: 100;
-            transition: transform 0.5s ease-in-out;
-            width: 80px; /* Diminuindo a largura na animação */
-            height: 80px; /* Diminuindo a altura na animação */
-        }
-
-        .description {
-            display: none;
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-15px);
-            background-color: #d3b888;
-            border: 2px solid #a67c4d;
-            border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-            width: 250px;
-            text-align: center;
-            background-image: radial-gradient(circle, #f2e2c9 20%, #d3b888 80%);
-        }
-
-        .description:after {
-            content: "";
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -10px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent transparent #d3b888 transparent; /* Pontinha para baixo */
-            transform: translateX(-50%) rotate(0deg);
-        }
     </style>
 </head>
 <body>
@@ -323,41 +193,41 @@
 
 <div class="container">
     <div class="item">
-        <img id="cookie1" src="produto1Nut.jpg" alt="Cookie 1">
+        <img id="cookie1" src="cookierosa.png" alt="Cookie 1">
+        <div class="price">R$ 5,00</div>
+        <button class="add-to-cart" onclick="addToCart('Cookie de nesquik', 10.00, 'cookie1')">Adicionar ao Carrinho</button>
+        <div class="description">Delicioso cookie de chocolate!</div>
+    </div>
+    <div class="item">
+        <img id="cookie2" src="produto1Nut.jpg" alt="Cookie 2">
+        <div class="price">R$ 4,50</div>
+        <button class="add-to-cart" onclick="addToCart('Cookie de nutella', 10.00, 'cookie2')">Adicionar ao Carrinho</button>
+        <div class="description">Irresistível cookie de baunilha!</div>
+    </div>
+    <div class="item">
+        <img id="cookie3" src="produto2Red.jpg" alt="Cookie 3">
+        <div class="price">R$ 6,00</div>
+        <button class="add-to-cart" onclick="addToCart('Cookie de red velvet', 10.00, 'cookie3')">Adicionar ao Carrinho</button>
+        <div class="description">Saboroso cookie de avelã!</div>
+    </div>
+    <div class="item">
+        <img id="cookie4" src="produto4MM.jpg" alt="Cookie 4">
+        <div class="price">R$ 5,50</div>
+        <button class="add-to-cart" onclick="addToCart('Cookie de mm', 10.00, 'cookie4')">Adicionar ao Carrinho</button>
+        <div class="description">Saudável cookie integral!</div>
+    </div>
+    <div class="item">
+        <img id="cookie5" src="produto5Ovo.jpg" alt="Cookie 5">
         <div class="price">R$ 10,00</div>
-        <button class="add-to-cart" onclick="addToCart('Cookie de Nutella', 10.00, 'cookie1')">Adicionar ao Carrinho</button>
-        <div class="description">Cookie de nutella. </div>
-    </div>
-    <div class="item">
-        <img id="cookie2" src="produto2Red.jpg" alt="Cookie 2">
-        <div class="price">R$ 10,00</div>
-        <button class="add-to-cart" onclick="addToCart('Cookie de Red Velvet', 10.00, 'cookie2')">Adicionar ao Carrinho</button>
-        <div class="description"> Cookie de Red Velvet. </div>
-    </div>
-    <div class="item">
-        <img id="cookie3" src="produto5Ovo.jpg" alt="Cookie 3">
-        <div class="price">R$ 10,00</div>
-        <button class="add-to-cart" onclick="addToCart('Cookie de Ovomaltine', 10.00, 'cookie3')">Adicionar ao Carrinho</button>
-        <div class="description">Cookie de ovomaltine.</div>
-    </div>
-    <div class="item">
-        <img id="cookie4" src="cookierosa.png" alt="Cookie 4">
-        <div class="price">R$ 10,0</div>
-        <button class="add-to-cart" onclick="addToCart('Cookie de Nesquik', 10.00, 'cookie4')">Adicionar ao Carrinho</button>
-        <div class="description">Cookie de nesquik</div>
-    </div>
-    <div class="item">
-        <img id="cookie5" src="produto4MM.jpg" alt="Cookie 5">
-        <div class="price">R$ 10,0</div>
-        <button class="add-to-cart" onclick="addToCart('Cookie de MM's', 10.00, 'cookie5')">Adicionar ao Carrinho</button>
-        <div class="description">Cookie de MM's</div>
+        <button class="add-to-cart" onclick="addToCart('Cookie de ovomaltine', 10.00, 'cookie5')">Adicionar ao Carrinho</button>
+        <div class="description">Delicioso cookie de canela!</div>
     </div>
 </div>
 
 <div class="modal" id="payment-modal">
     <div class="modal-content">
         <h2>Chave Pix</h2>
-        <p>Chave: 123456789@pix.com</p>
+        <p>Chave: 04238771001</p>
         <div class="close-modal" onclick="closeModal()">✖ Fechar</div>
     </div>
 </div>
